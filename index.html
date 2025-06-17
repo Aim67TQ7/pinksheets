@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Stock Analysis - AI-Powered Investment Research</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2E86AB;
+            border-bottom: 3px solid #2E86AB;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #A23B72;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #F18F01;
+        }
+        .metric {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .stock-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            background: #f8f9fa;
+        }
+        .score {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .score.high { color: #28a745; }
+        .score.medium { color: #ffc107; }
+        .score.low { color: #dc3545; }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .disclaimer {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .header-info {
+            background: linear-gradient(135deg, #2E86AB, #A23B72);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-info">
+            <h1 style="border: none; color: white; margin: 0;">📈 Daily Stock Analysis</h1>
+            <p style="margin: 10px 0 0 0; font-size: 1.1em;">AI-Powered Investment Research & Portfolio Tracking</p>
+        </div>
+        
+        <div id="content">
+            <!-- Markdown content will be inserted here -->
+            <!-- Content loaded by JavaScript -->
+        </div>
+        
+        <div class="footer">
+            <p><strong>Powered by AI Analysis</strong> | Updated Daily at 6:00 AM EST</p>
+            <p>🤖 Automated Technical Analysis • 📊 Real-time Portfolio Tracking • 📈 Daily Investment Insights</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simple markdown to HTML conversion for basic formatting
+        function convertMarkdownToHTML(markdown) {
+            return markdown
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/!\[([^\]]*)\]\(([^)]*)\)/g, '<img alt="$1" src="$2">')
+                .replace(/\[([^\]]*)\]\(([^)]*)\)/g, '<a href="$2">$1</a>')
+                .replace(/^---$/gim, '<hr>')
+                .replace(/
+
+/g, '</p><p>')
+                .replace(/
+/g, '<br>');
+        }
+        
+        // Convert and insert content
+        const markdownContent = `# Daily Stock Analysis Report
+*Generated on June 09, 2025 at 10:10 AM EST*
+
+## Market Overview
+
+The markets showed moderately bullish sentiment today with the S&P 500 +0.75%, NASDAQ +1.20%, and Dow Jones +0.45%. The VIX closed at 18.5, indicating moderate market volatility.
+
+## Portfolio Performance Summary
+
+**Current Portfolio Value:** $200.00  
+**Daily P&L:** $5.00 (2.60%)  
+**Total P&L:** $0.00 (0.00%)  
+**Cash Available:** $50.00  
+**Total Invested:** $150.00
+
+
+![Portfolio Performance](charts/portfolio_performance.png)
+
+
+
+## Current Holdings
+
+![Current Holdings](charts/current_holdings.png)
+
+
+**AAPL** - 0.5000 shares  
+- Current Price: $150.00  
+- Current Value: $75.00  
+- P&L: $5.00 (7.10%)  
+- Days Held: 5
+
+
+**MSFT** - 0.2500 shares  
+- Current Price: $300.00  
+- Current Value: $75.00  
+- P&L: $-5.00 (-6.30%)  
+- Days Held: 3
+
+
+
+
+## Top 10 Stock Recommendations
+
+Based on our comprehensive analysis combining technical indicators and market sentiment, here are today's top stock picks:
+
+
+![Stock Analysis Scores](charts/stock_scores.png)
+
+
+
+### 1. AAPL - Apple Inc.
+
+**Composite Score:** 85/100  
+**Current Price:** $150.00  
+**Sector:** Technology  
+**Market Cap:** $3000.00B
+
+**Technical Analysis (80/100):**
+- RSI: 45.5
+- 20-day SMA: $148.00
+- 50-day SMA: $145.00
+- 5-day Change: 2.50%
+
+**Sentiment Analysis (95/100):**  
+Strong positive sentiment from recent earnings
+
+**Investment Thesis:**  
+
+Strong buy candidate with excellent technical momentum and positive sentiment. Consider for immediate investment.
+
+
+---
+
+### 2. MSFT - Microsoft Corporation
+
+**Composite Score:** 82/100  
+**Current Price:** $300.00  
+**Sector:** Technology  
+**Market Cap:** $2800.00B
+
+**Technical Analysis (85/100):**
+- RSI: 52.3
+- 20-day SMA: $295.00
+- 50-day SMA: $290.00
+- 5-day Change: 1.80%
+
+**Sentiment Analysis (75/100):**  
+Positive outlook on cloud growth
+
+**Investment Thesis:**  
+
+Strong buy candidate with excellent technical momentum and positive sentiment. Consider for immediate investment.
+
+
+---
+
+
+## Trading Activity
+
+
+
+
+
+## Risk Analysis
+
+**Current Risk Factors:**
+- Portfolio concentration in top holdings
+- Market volatility (VIX: 18.5)
+- Sector allocation balance
+
+**Risk Management Measures:**
+- Stop-loss orders at -15%
+- Take-profit targets at +25%
+- Maximum 30-day holding period
+- Position size limits (20% max per stock)
+
+## Market Outlook
+
+Based on current technical indicators and market sentiment, we maintain a bullish outlook for the near term. Key factors to monitor include:
+
+- Federal Reserve policy decisions
+- Earnings season developments
+- Geopolitical events
+- Economic data releases
+
+## Disclaimer
+
+**Important Notice:** This analysis is for educational purposes only and should not be considered as financial advice. All investments carry risk, and past performance does not guarantee future results. The hypothetical portfolio tracking shown here is for demonstration purposes and does not reflect actual trading results.
+
+**Risk Warning:** Stock trading involves substantial risk of loss and is not suitable for all investors. Please consult with a qualified financial advisor before making investment decisions.
+
+---
+
+*This report was generated automatically using quantitative analysis and market data. For questions or feedback, please contact our team.*
+
+*Next update: Tomorrow at 6:00 AM EST*`;
+        const htmlContent = convertMarkdownToHTML(markdownContent);
+        document.getElementById('content').innerHTML = '<p>' + htmlContent + '</p>';
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+name: Deploy Stock Analysis Blog
+
+on:
+  schedule:
+    # Run daily at 6:00 AM EST (11:00 AM UTC)
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: stock-analysis-website/package-lock.json
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy==1.24.3
+        pip install yfinance pandas matplotlib plotly jinja2 requests beautifulsoup4 vaderSentiment textblob
+    
+    - name: Install Node.js dependencies
+      working-directory: ./stock-analysis-website
+      run: npm ci
+    
+    - name: Run daily stock analysis
+      run: |
+        python run_daily_analysis.py
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+    
+    - name: Build React application
+      working-directory: ./stock-analysis-website
+      run: npm run build
+    
+    - name: Install Netlify CLI
+      run: npm install -g netlify-cli
+    
+    - name: Deploy to Netlify
+      working-directory: ./stock-analysis-website
+      run: |
+        netlify deploy --prod --dir=dist --site=${{ secrets.NETLIFY_SITE_ID }} --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    
+    - name: Deploy blog content
+      run: |
+        # Also deploy the static blog content
+        netlify deploy --prod --dir=public --site=${{ secrets.NETLIFY_BLOG_SITE_ID }} --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_BLOG_SITE_ID: ${{ secrets.NETLIFY_BLOG_SITE_ID }}
+

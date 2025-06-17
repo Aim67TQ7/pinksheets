@@ -1,0 +1,73 @@
+name: Pink Sheet Daily Automation
+
+on:
+  schedule:
+    # Run every day at 6:00 AM EST (11:00 AM UTC)
+    - cron: '0 11 * * 1-5'  # Monday to Friday only
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  pink-sheet-automation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install yfinance pandas numpy requests jinja2 matplotlib plotly python-dateutil
+        
+    - name: Run Pink Sheet Analysis
+      run: |
+        cd ${{ github.workspace }}
+        python pink_sheet_automation.py
+        
+    - name: Generate Website Data
+      run: |
+        cd ${{ github.workspace }}
+        python generate_website_data.py
+        
+    - name: Build React App
+      run: |
+        cd stock-analysis-website
+        npm install
+        npm run build
+        
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './stock-analysis-website/dist'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Pink Sheet Daily Update - ${{ github.event.head_commit.message }}"
+        enable-pull-request-comment: false
+        enable-commit-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        
+    - name: Commit and Push Data
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/
+        git commit -m "Daily pink sheet automation data update" || exit 0
+        git push
+        
+    - name: Generate Weekly Report
+      if: github.event.schedule == '0 11 * * 5'  # Friday only
+      run: |
+        python generate_weekly_report.py
+        
+    - name: Send Status Notification
+      if: always()
+      run: |
+        echo "Pink sheet automation completed with status: ${{ job.status }}"
+

@@ -1,0 +1,71 @@
+[
+  {
+    "date": "2025-06-13T11:20:13.560469",
+    "runtime_minutes": 0.6263605833333333,
+    "stocks_analyzed": 55,
+    "trades_executed": 3,
+    "portfolio_value": 0.0,
+    "top_picks": [
+      {
+        "symbol": "GCAN",
+        "variant": "GCAN",
+        "price": 0.0004,
+        "volume": 759135,
+        "score": 220,
+        "category": "BIOTECH_MEDICAL",
+        "price_change_1d": 33.33,
+        "price_change_5d": 60.0,
+        "risk_level": "EXTREME",
+        "analysis_time": "2025-06-13T11:19:47.405846"
+      },
+      {
+        "symbol": "CBDD",
+        "variant": "CBDD",
+        "price": 0.0002,
+        "volume": 16060189,
+        "score": 220,
+        "category": "CANNABIS_HEMP",
+        "price_change_1d": 0.0,
+        "price_change_5d": 33.33,
+        "risk_level": "EXTREME",
+        "analysis_time": "2025-06-13T11:20:07.266706"
+      },
+      {
+        "symbol": "ALPP",
+        "variant": "ALPP",
+        "price": 0.0007,
+        "volume": 1953,
+        "score": 215,
+        "category": "TECH_INNOVATION",
+        "price_change_1d": 75.0,
+        "price_change_5d": 16.67,
+        "risk_level": "EXTREME",
+        "analysis_time": "2025-06-13T11:19:58.792181"
+      },
+      {
+        "symbol": "ADXS",
+        "variant": "ADXS",
+        "price": 0.04055,
+        "volume": 1000,
+        "score": 195,
+        "category": "BIOTECH_MEDICAL",
+        "price_change_1d": 28.53,
+        "price_change_5d": 21.04,
+        "risk_level": "VERY HIGH",
+        "analysis_time": "2025-06-13T11:19:41.031406"
+      },
+      {
+        "symbol": "SANP",
+        "variant": "SANP",
+        "price": 0.021,
+        "volume": 9147,
+        "score": 195,
+        "category": "TECH_INNOVATION",
+        "price_change_1d": 0.0,
+        "price_change_5d": 5.0,
+        "risk_level": "VERY HIGH",
+        "analysis_time": "2025-06-13T11:19:47.590071"
+      }
+    ]
+  }
+]

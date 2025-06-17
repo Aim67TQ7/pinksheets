@@ -1,0 +1,27 @@
+{
+  "holdings": {
+    "GCAN": {
+      "shares": 50000.0,
+      "avg_price": 0.0004,
+      "cost_basis": 20.0,
+      "purchase_date": "2025-06-13T11:20:10.703005",
+      "category": "BIOTECH_MEDICAL"
+    },
+    "CBDD": {
+      "shares": 60000.0,
+      "avg_price": 0.0002,
+      "cost_basis": 12.0,
+      "purchase_date": "2025-06-13T11:20:10.703053",
+      "category": "CANNABIS_HEMP"
+    },
+    "ALPP": {
+      "shares": 11428.57142857143,
+      "avg_price": 0.0007,
+      "cost_basis": 8.0,
+      "purchase_date": "2025-06-13T11:20:10.703098",
+      "category": "TECH_INNOVATION"
+    }
+  },
+  "cash": 0.0,
+  "total_invested": 0
+}
