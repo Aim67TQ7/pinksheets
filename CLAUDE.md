@@ -1,19 +1,30 @@
 # Claude Audit Log
 
 **Audited:** 2026-02-26
-**Bucket:** [SALVAGE]
+**Bucket:** [AGENT-REPLACE]
+**Status:** In Transition
 
 ## What This Was
-Standalone app or experiment
+Pink Sheets — financial/regulatory filing tracker
 
-## Job To Be Done
-General purpose / unclear
+## Current State
+Function replaceable by agent — last pushed 2026-02-02
 
 ## Agent Replacement
-N/A
+**Agent Name:** PENDING
+**Lives On:** Maggie or Pete VPS (to be determined during build)
+**Orchestrator:** n8n integration nodes
+**Endpoint or Trigger:** PENDING
+**Supabase Table:** N/A
 
-## What To Extract
-Review for reusable patterns
+## Handoff Notes
+Core function: Track and analyze OTC market pink sheet filings. Recommended replacement: n8n integration nodes. Verify at https://orc.gp3.app/skills before building anything new.
+
+## Dependencies
+- None identified — check package.json for specifics
+
+## Last Known Working State
+2026-02-02
 
 ## Claude's Notes
-- Salvage value identified: Review for reusable patterns
+- Agent replacement not yet built. This is a backlog item for the GP3 platform team.
